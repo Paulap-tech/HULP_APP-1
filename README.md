@@ -87,7 +87,6 @@ The second phase of the project involves creating a MySQL database consisting of
 
 For more details, please refer to the specific documentation for each phase.
 
----
 The second phase can be found in the repository HULP_APP_backend
 
 --- 
