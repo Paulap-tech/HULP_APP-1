@@ -1,4 +1,4 @@
-# HULP_APP
+# HULP_APP - Phase 1
 
 An app designed to track menstrual cycles and Narcolepsy Type I.
 
