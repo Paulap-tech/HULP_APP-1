@@ -90,7 +90,6 @@ For more details, please refer to the specific documentation for each phase.
 ---
 The second phase can be found in the repository HULP_APP_backend
 
----
 --- 
 ## Disclaimer
 
