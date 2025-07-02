@@ -1,35 +1,84 @@
-# Learn more https://docs.github.com/en/get-started/getting-started-with-git/ignoring-files
-
-# dependencies
+# Node modules
 node_modules/
+
+# Yarn / npm / pnpm logs
+yarn-debug.log*
+yarn-error.log*
+npm-debug.log*
+pnpm-debug.log*
 
 # Expo
 .expo/
-dist/
+.expo-shared/
 web-build/
 
-# Native
-*.orig.*
-*.jks
-*.p8
-*.p12
-*.key
-*.mobileprovision
+# Metro bundler cache
+.cache/
 
-# Metro
-.metro-health-check*
+# Build output (bare workflow / EAS Build)
+build/
+dist/
+ios/
+android/
 
-# debug
-npm-debug.*
-yarn-debug.*
-yarn-error.*
+# Pods (iOS, si usas bare workflow)
+ios/Pods/
+*.xcworkspace
+*.xcodeproj
+*.xcuserdata
+*.xcuserstate
+
+# Gradle (Android)
+android/.gradle/
+android/app/build/
+android/.idea/
+*.iml
+
+# Environment files
+.env
+.env.*.local
+
+# Testing coverage
+coverage/
+
+# VS Code
+.vscode/
+.history/
+
+# IDEs
+.idea/
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
 
 # macOS
 .DS_Store
-*.pem
+.AppleDouble
+.LSOverride
 
-# local env files
-.env*.local
+# Windows
+Thumbs.db
+ehthumbs.db
+Desktop.ini
 
-# typescript
+# React Native Packager
+react-native/packager-cache-*
+
+# Misc
+*.log
 *.tsbuildinfo
+
+# NPM audit logs
+audit.json
+
+# EAS build artifacts
+*.tar.gz
+*.ipa
+*.apk
+
+# Hermetic cache (React Native)
+.hermes
+
+# Watchman
+.watchmanconfig
