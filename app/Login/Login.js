@@ -1,76 +1,76 @@
-// LoginScreen.js
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, ScrollView } from 'react-native';
-import axios from 'axios';
+import AsyncStorage from '@react-native-async-storage/async-storage';
 import styles from './styles'; // Importa los estilos desde un archivo separado
+import { post } from '../apis';
 
-const LoginScreen = ({ navigation }) => {
-    const [email, setEmail] = useState('');
-    const [password, setPassword] = useState('');
-    const [error, setError] = useState('');
+const LoginScreen = ({ navigation, setIsAuthenticated, setUserInfo }) => {
+  const [email, setEmail] = useState('');
+  const [password, setPassword] = useState('');
+  const [error, setError] = useState('');
 
-    const handleLogin = async () => {
-        try {
-            const response = await axios.post('http://localhost:3000/login', {
-                email,
-                password,
-            });
+  const handleLogin = async () => {
+    try {
+      const response = await post('/login', { email, password });
+      const { email: userEmail, age: userAge, token, role: userRole } = response.data;
 
-            console.log('Login successful:', response.data);
+      await AsyncStorage.setItem('userToken', token || 'dummy-token');
+      await AsyncStorage.setItem('userEmail', userEmail);
+      await AsyncStorage.setItem('userAge', userAge.toString());
+      await AsyncStorage.setItem('userRole' , userRole);
 
-            // Extrae todos los datos necesarios del servidor
-            const { email: userEmail, age: userAge } = response.data;
+      // Actualizar estado global para mostrar MainTabs
+      setUserInfo({ email: userEmail, userAge, role: userRole });
+      setIsAuthenticated(true);
 
-            // Asegúrate de pasar los parámetros correctos a MainTabs
-            navigation.navigate('MainTabs', { email: userEmail, userAge });
-        } catch (error) {
-            console.error('Error en el login:', error);
+      // No navegamos manualmente aquí porque el stack cambia automáticamente
 
-            if (error.response) {
-                console.error('Respuesta de error:', error.response.data);
+    } catch (error) {
+      console.error('Error en el login:', error);
 
-                if (error.response.status === 401) {
-                    setError('Email o contraseña incorrectos. Por favor, verifica tus datos.');
-                } else {
-                    setError('Error interno. Por favor, inténtalo de nuevo más tarde.');
-                }
-            } else {
-                setError('Error de red. Por favor, verifica tu conexión a internet.');
-            }
+      if (error.response) {
+        if (error.response.status === 401) {
+          setError('Email o contraseña incorrectos. Por favor, verifica tus datos.');
+        } else {
+          setError('Error interno. Por favor, inténtalo de nuevo más tarde.');
         }
-    };
+      } else {
+        setError('Error de red. Por favor, verifica tu conexión a internet.');
+      }
+    }
+  };
 
-    const handleRegister = () => {
-        navigation.navigate('RegisterScreen'); // Navega a la pantalla de registro
-    };
+  const handleRegister = () => {
+    navigation.navigate('RegisterScreen');
+  };
 
-    return (
-        <ScrollView contentContainerStyle={styles.container}>
-            <Text style={styles.title}>Inicio de sesión</Text>
-            <TextInput
-                style={styles.input}
-                placeholder="Email"
-                value={email}
-                onChangeText={setEmail}
-                keyboardType="email-address"
-                autoCapitalize="none"
-            />
-            <TextInput
-                style={styles.input}
-                placeholder="Contraseña"
-                value={password}
-                onChangeText={setPassword}
-                secureTextEntry
-            />
-            <TouchableOpacity style={styles.button} onPress={handleLogin}>
-                <Text style={styles.buttonText}>Iniciar sesión</Text>
-            </TouchableOpacity>
-            {error ? <Text style={styles.error}>{error}</Text> : null}
-            <TouchableOpacity style={styles.registerButton} onPress={handleRegister}>
-                <Text style={styles.registerButtonText}>Regístrate</Text>
-            </TouchableOpacity>
-        </ScrollView>
-    );
+  return (
+    <ScrollView contentContainerStyle={styles.container}>
+      <Text style={styles.title}>Inicio de sesión</Text>
+      <TextInput
+        style={styles.input}
+        placeholder="Email"
+        value={email}
+        onChangeText={setEmail}
+        keyboardType="email-address"
+        autoCapitalize="none"
+      />
+      <TextInput
+        style={styles.input}
+        placeholder="Contraseña"
+        value={password}
+        onChangeText={setPassword}
+        secureTextEntry
+      />
+      <TouchableOpacity style={styles.button} onPress={handleLogin}>
+        <Text style={styles.buttonText}>Iniciar sesión</Text>
+      </TouchableOpacity>
+      {error ? <Text style={styles.error}>{error}</Text> : null}
+      <TouchableOpacity style={styles.registerButton} onPress={handleRegister}>
+        <Text style={styles.registerButtonText}>Regístrate</Text>
+      </TouchableOpacity>
+    </ScrollView>
+  );
 };
 
 export default LoginScreen;

@@ -1,14 +1,22 @@
 import React, { useState } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Alert, ScrollView } from 'react-native';
 import { useRoute, useNavigation } from '@react-navigation/native';
-import axios from 'axios';
+//import axios from 'axios';
 import styles from './styles';
+import { post } from '../apis';
 
 const DayPeriod = () => {
   const route = useRoute();
   const navigation = useNavigation();
-  const { userEmail } = route.params || {}; // Obtener el correo electrónico de los parámetros
+  const { userEmail, role } = route.params || {}; // Obtener el correo electrónico de los parámetros
   const [cycleDuration, setCycleDuration] = useState('');
+
+  React.useEffect(() => {
+    if (role !== 'paciente') {
+      navigation.replace('PersonalInfo', {userEmail});
+    }
+  }, [role]);
+  if (role !== 'paciente') return null;
 
   const handleSaveCycleDuration = async () => {
     if (!cycleDuration) {
@@ -28,7 +36,7 @@ const DayPeriod = () => {
         ciclo_duracion: duration,
       };
 
-      const response = await axios.post('http://localhost:3000/api/ciclo-duracion', record, {
+      const response = await post('/ciclo-duracion', record, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -37,7 +45,7 @@ const DayPeriod = () => {
       console.log('Duración del ciclo guardada:', response.data);
       console.log('userEmail en DayPeriod:', userEmail);
 
-      navigation.navigate('PersonalInfo', { userEmail}) // Redirigir a la pantalla de información personal clínica
+      navigation.navigate('PersonalInfo', { userEmail, role}) // Redirigir a la pantalla de información personal clínica
       Alert.alert('Éxito', 'Duración del ciclo guardada con éxito.');
       setCycleDuration('');
     } catch (error) {

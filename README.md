@@ -15,7 +15,8 @@ During my internship at Hospital La Paz, I worked on a data collection system di
 ### Features
 
 1. **User Account Creation**
-   - Users are required to create an account by providing:
+   - Users are required to create an account depending on which role they are by providing:
+   - Patients:
      - Email address
      - Password
      - Date of birth
@@ -25,14 +26,21 @@ During my internship at Hospital La Paz, I worked on a data collection system di
      - Height
      - Weight
      - Treatment for narcolepsy (optional)
+   - Doctors:
+     - Email address
+     - Date of birth
+     - Medical Specialty
+     - Years of experience
+     - Password
 
-2. **Main Screen**
+
+2. **Main Screen in Patiens**
    - Displays a calendar where users can log menstrual spotting days.
    - Indicates the most fertile days.
    - Internally calculates the four phases of the menstrual cycle: luteal, follicular, ovulatory, and menstruation.
      In this first phase, only the luteal and menstruation dates are calculated.
 
-3. **Symptom Tracking Screens**
+3. **Symptom Tracking Screens in patients**
    - **Narcolepsy Symptoms Screen**:
      - Allows users to record narcolepsy symptoms including:
        - Cataplexy (facial, extremities, or falling)
@@ -53,6 +61,22 @@ During my internship at Hospital La Paz, I worked on a data collection system di
        - Fatigue
        - Among others.
      These records can be used to provide a comprehensive view of menstruation-related symptoms that the patient might experience, offering valuable context for the study despite not being specific to the menstrual cycle.
+
+   - **Profile Screen**:
+     - Provides all the user information such as:
+       - Email Address
+       - Age
+       - Doctor
+       - Symptoms information of each day
+       - Log out  
+
+
+4. **Main Screen in Doctors**:
+   - Displays the personal information of the doctor including the request of the patiens who wnat that doctor to check on them.
+
+5. **Aditional Screen as Doctor**: 
+   - Provides the list of patiens asigned to that doctor and some personal information.
+
 
 ## Technologies Used
 
@@ -94,7 +118,7 @@ The second phase can be found in the repository HULP_APP_backend
 
 This project was developed in collaboration with **Hospital Universitario La Paz** and **Universidad Politécnica de Madrid**. The code and documentation provided are a result of this collaborative effort and aim to support the ongoing research and clinical work related to menstrual cycle tracking and Narcolepsy Type I.
 
-**Author**: Celia Taboada Martín 
+**Author**: Celia Taboada Martín and Paula García Alonso
 
 **Academic tutor**: Ignacio Oropesa
 

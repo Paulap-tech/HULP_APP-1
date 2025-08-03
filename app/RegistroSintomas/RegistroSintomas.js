@@ -2,6 +2,7 @@ import React, { useState, useEffect } from 'react';
 import { View, Text, FlatList, TouchableOpacity, StyleSheet } from 'react-native';
 import axios from 'axios';
 import styles from './styles'; // Importa los estilos desde un archivo separado
+import { post } from '../apis';
 
 const sintomasGenerales = [
   'Dolor de Cabeza',
@@ -37,7 +38,7 @@ const RegistroSintomas = ({ userEmail, navigation }) => {
     setSelectedSymptoms(newSelectedSymptoms);
 
     try {
-      await axios.post('http://localhost:3000/sintomas', {
+      await post('/sintomas', {
         email: userEmail,
         fecha: today,
         symptoms: Object.keys(newSelectedSymptoms).filter(symptom => newSelectedSymptoms[symptom])

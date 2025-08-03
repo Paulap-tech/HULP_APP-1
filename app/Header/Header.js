@@ -1,5 +1,6 @@
 import React from 'react';
 import { View, Text, StyleSheet } from 'react-native';
+//import { AuthContext } from '../context/AuthContext';
 
 const Header = ({ email }) => (
   <View style={styles.headerContainer}>
@@ -20,7 +21,8 @@ const styles = StyleSheet.create({
     color: '#fff',
     fontSize: 20, // Ajustar el tamaño del texto para una mejor visibilidad
     fontWeight: '600', // Usar un peso de fuente ligeramente más ligero
-  },
+    marginBottom:8,
+  } 
 });
 
 export default Header;

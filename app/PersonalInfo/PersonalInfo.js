@@ -1,17 +1,29 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { View, Text, TextInput, TouchableOpacity, Alert, ScrollView } from 'react-native';
-import axios from 'axios';
+//import axios from 'axios';
 import styles from './styles';
 import { useRoute, useNavigation } from '@react-navigation/native';
+import { post } from '../apis';
 
 const UserInformation = () => {
-    const route = useRoute();
-    const navigation = useNavigation();
-    const { userEmail } = route.params || {};
+  const route = useRoute();
+  const navigation = useNavigation();
+  const { userEmail, role } = route.params || {};
     
   const [weight, setWeight] = useState('');
   const [height, setHeight] = useState('');
   const [treatment, setTreatment] = useState('');
+
+  useEffect(() => {
+    if (role !== 'paciente') {
+      Alert.alert('Éxito','Información guardada con éxito.');
+      navigation.replace('Login');
+    }
+  }, [role]);
+
+  if (role !== 'paciente') {
+    return null;
+  }
 
   const handleSaveInformation = async () => {
     if (!weight || !height || !treatment) {
@@ -46,7 +58,7 @@ const UserInformation = () => {
         tratamiento: treatment,
       };
 
-      const response = await axios.post('http://localhost:3000/information', record, {
+      const response = await post('/information', record, {
         headers: {
           'Content-Type': 'application/json',
         },
@@ -85,7 +97,7 @@ const UserInformation = () => {
       />
       <TextInput
         style={styles.input}
-        placeholder="Tratamiento narcolepsia (opcional)"
+        placeholder="Tratamiento narcolepsia (si/no)"
         value={treatment}
         onChangeText={setTreatment}
       />

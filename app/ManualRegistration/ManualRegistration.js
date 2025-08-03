@@ -1,8 +1,10 @@
 import React, { useState } from 'react';
 import { View, TextInput, Text, TouchableOpacity, ScrollView, Alert } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
-import { registerUser } from './apis';
+import { Picker } from '@react-native-picker/picker';
+//import { registerUser } from './apis';
 import styles from './styles';
+import { post } from '../apis';
 
 const ManualRegistration = () => {
   const navigation = useNavigation();
@@ -15,11 +17,23 @@ const ManualRegistration = () => {
   const [ano_diagnostico, setAnoDiagnostico] = useState('');
   const [ano_sintomas, setAnoSintomas] = useState('');
   const [error, setError] = useState('');
+  const [role, setRole] = useState('paciente');
+  const [especialidad, setEspecialidad] = useState('');
+  const [aniosExperiencia, setAniosExperiencia] = useState('');
 
   const handleRegister = async () => {
-    if ( !diaNacimiento || !mesNacimiento || !anoNacimiento || !email || !password || !ano_diagnostico || !ano_sintomas ) {
+    if ( !diaNacimiento || !mesNacimiento || !anoNacimiento || !email || !password || !role) {
         setError('Todos los campos son obligatorios');
         return;
+    }
+    
+    if (role === 'paciente' && (!ano_diagnostico || !ano_sintomas)) {
+      setError('Completa los datos de diagnótico y síntomas');
+      return;
+    }
+    if (role === 'medico' && (!especialidad || !aniosExperiencia)){
+      setError('Completa los datos de especialidad y experiencia');
+      return;
     }
 
     const formattedDia = diaNacimiento.padStart(2, '0');
@@ -35,10 +49,19 @@ const ManualRegistration = () => {
     const age = calculateAge(fechaNacimiento);
 
     try {
-        const response = await registerUser({ email, password, age, ano_diagnostico, ano_sintomas });
+        const response = await post("/registro",{ email, password, age,
+          role,
+          ...(role === 'paciente' && {
+            ano_diagnostico, ano_sintomas
+          }),
+          ...(role === 'medico' && {
+            especialidad,
+            anios_experiencia: parseInt(aniosExperiencia)
+          })
+         });
         console.log('Registro exitoso:', response.data);
         
-        navigation.navigate('DayPeriod', { userEmail: email });
+        navigation.navigate('DayPeriod', { userEmail: email, role  });
         Alert.alert('Registro exitoso', '¡Bienvenido! Tu registro ha sido exitoso.');
     } catch (error) {
         console.error('Error en el registro:', error);
@@ -122,6 +145,8 @@ const ManualRegistration = () => {
           </View>
         </View>
 
+    {role === 'paciente' ? ( 
+      <>
         <Text style={styles.label}>Año de diagnóstico:</Text>
         <TextInput
           style={styles.input}
@@ -140,7 +165,28 @@ const ManualRegistration = () => {
           keyboardType="numeric"
           maxLength={4}
         />
-        
+      </>
+    ) : (
+      <>
+        <Text style={styles.label}>Especialidad médica:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Ej. Neurología"
+          value={especialidad}
+          onChangeText={setEspecialidad}
+        />
+
+        <Text style={styles.label}>Años de experiencia:</Text>
+        <TextInput
+          style={styles.input}
+          placeholder="Ej. 5"
+          value={aniosExperiencia}
+          onChangeText={setAniosExperiencia}
+          keyboardType="numeric"
+        />
+      </>
+    )}
+
         <Text style={styles.label}>Contraseña:</Text>
         <TextInput
           style={styles.input}
@@ -149,6 +195,23 @@ const ManualRegistration = () => {
           onChangeText={setPassword}
           secureTextEntry
         />
+
+        <Text style={styles.label}>Rol:</Text>
+        <View
+          style={{
+            borderWidth: 1,
+            borderColor: '#ddd',
+            borderRadius: 5,
+            marginBottom: 20,
+            backgroundColor: '#fff',
+          }}
+        >
+          <Picker selectedValue={role} onValueChange={setRole}>
+            <Picker.Item label="Paciente" value="paciente" />
+            <Picker.Item label="Médico" value="medico" />
+          </Picker>
+        </View>
+
         <TouchableOpacity style={styles.button} onPress={handleRegister}>
           <Text style={styles.buttonText}>Registrarse</Text>
         </TouchableOpacity>

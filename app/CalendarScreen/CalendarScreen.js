@@ -1,8 +1,9 @@
 import React, { useState, useEffect } from 'react';
 import { View, Text, Alert, TouchableOpacity, ScrollView } from 'react-native';
 import { Calendar } from 'react-native-calendars';
-import axios from 'axios';
+//import axios from 'axios';
 import styles from './styles'; 
+import { post, get } from '../apis';
 
 const CalendarScreen = ({ userEmail }) => {
   const [markedDates, setMarkedDates] = useState({});
@@ -47,7 +48,7 @@ const CalendarScreen = ({ userEmail }) => {
   };
 
   const fetchMenstruationDates = () => {
-    axios.get(`http://localhost:3000/registros/fechas/${userEmail}`)
+    get(`/registros/fechas/${userEmail}`)
       .then(response => {
         const fetchedDates = response.data;
         const newMarkedDates = {};
@@ -123,7 +124,7 @@ const CalendarScreen = ({ userEmail }) => {
   };
 
   const fetchUserCycleDays = () => {
-    axios.get(`http://localhost:3000/ciclo/${userEmail}`)
+    get(`/ciclo/${userEmail}`)
       .then(response => {
         const { cicle_days } = response.data;
         setCycleDays(cicle_days || 28); // Valor por defecto si no se encuentra el número de días del ciclo
@@ -182,7 +183,7 @@ const CalendarScreen = ({ userEmail }) => {
       fase: 'menstruacion'
     };
 
-    axios.post('http://localhost:3000/menstruacion', menstruationRecord, {
+    post('/menstruacion', menstruationRecord, {
       headers: {
         'Content-Type': 'application/json',
       }
@@ -195,10 +196,10 @@ const CalendarScreen = ({ userEmail }) => {
         email: userEmail,
         fecha_inicio: lutealPhaseStart,
         fecha_fin: lutealPhaseEnd,
-        fase: 'lutea'
+        fase: 'lútea'
       };
 
-      axios.post('http://localhost:3000/fases', lutealRecord, {
+      post('/fases', lutealRecord, {
         headers: {
           'Content-Type': 'application/json',
         }

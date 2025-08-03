@@ -1,8 +1,9 @@
 import React, { useState, useCallback, useEffect } from 'react';
 import { View, Text, ScrollView, TouchableOpacity, TouchableHighlight, StyleSheet } from 'react-native';
 import Slider from '@react-native-community/slider';
-import axios from 'axios';
+//import axios from 'axios';
 import styles from './styles';
+import { post } from '../apis';
 
 // Componente de botón de opción
 const OptionButton = React.memo(({ label, selected, onPress }) => (
@@ -67,7 +68,7 @@ const RegistroEpisodios = ({ userEmail, userAge }) => {
       alucinaciones: form.alucinaciones || 'no',
     };
 
-    axios.post('http://localhost:3000/registros', {
+    post('/registros', {
       fecha: new Date().toISOString().slice(0, 10),
       tipoEvento: form.tipoEvento,
       ...defaultForm,
