@@ -1,14 +1,19 @@
 import React from 'react';
-import { View, Text, StyleSheet } from 'react-native';
+import { View, Text, StyleSheet, SafeAreaView } from 'react-native';
 //import { AuthContext } from '../context/AuthContext';
 
 const Header = ({ email }) => (
-  <View style={styles.headerContainer}>
-    <Text style={styles.headerText}>¡Hola {email}!</Text>
-  </View>
+  <SafeAreaView style={styles.safeArea}>
+    <View style={styles.headerContainer}>
+      <Text style={styles.headerText}>¡Hola {email}!</Text>
+    </View>
+  </SafeAreaView>
 );
 
 const styles = StyleSheet.create({
+  safeArea: {
+    backgroundColor: '#00adf5',
+  },
   headerContainer: {
     paddingVertical: 15,
     paddingHorizontal: 20,
@@ -19,9 +24,9 @@ const styles = StyleSheet.create({
   },
   headerText: {
     color: '#fff',
-    fontSize: 20, // Ajustar el tamaño del texto para una mejor visibilidad
+    fontSize: 22, // Ajustar el tamaño del texto para una mejor visibilidad
     fontWeight: '600', // Usar un peso de fuente ligeramente más ligero
-    marginBottom:8,
+    marginBottom:5,
   } 
 });
 

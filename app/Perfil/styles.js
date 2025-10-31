@@ -66,13 +66,13 @@ const styles = StyleSheet.create({
   },
   selectDoctorButton: {
     marginTop: 20,
-    backgroundColor: '#4CAF50',
+    backgroundColor: '#ffe4e1',
     paddingVertical: 10,
     borderRadius: 8,
     alignItems: 'center',
   },
   selectDoctorButtonText: {
-    color: 'white',
+    color: '#150408ff',
     fontWeight: 'bold',
     fontSize: 16,
   },
