@@ -34,11 +34,39 @@ const styles = StyleSheet.create({
   alignSelf: 'center',
   marginBottom: 15,
 },
+botonVolver2: {
+  backgroundColor: '#007bff',
+  padding: 10,
+  borderRadius: 8,
+  alignSelf: 'center',
+  marginBottom: 15,
+  marginTop: 20,
+},
+
+textoBotonVolver2: {
+  color: '#fff',
+  fontWeight: 'bold',
+  textAlign: 'center',
+},
 textoBotonVolver: {
   color: '#fff',
   fontWeight: 'bold',
   textAlign: 'center',
 },
+emptyContainer: {
+    justifyContent: 'center',
+    paddingTop: 50,
+    paddingHorizontal: 20,
+    flex: 1,
+    width: '100%',
+    alignItems: 'center',
+  },
+  emptyText: {
+    fontSize: 16,
+    fontWeight: "500",
+    textAlign: 'center',
+  },
+
 
 });
 

@@ -35,8 +35,19 @@ const DatosGuardados = ({ route }) => {
 
   if (datos.length === 0) {
     return (
-      <View style={styles.container}>
-        <Text>No hay datos registrados.</Text>
+      <View style={styles.emptyContainer}>
+        <Text style= {styles.emptyText}>
+          No hay datos registrados.
+        </Text>
+
+        <TouchableOpacity
+          onPress={() => navigation.goBack()}
+          style={styles.botonVolver2}
+        >
+          <Text style={styles.textoBotonVolver2}>Volver al perfil</Text>
+        
+        </TouchableOpacity>
+
       </View>
     );
   }
