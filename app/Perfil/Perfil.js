@@ -221,7 +221,7 @@ const Perfil = ({ userEmail, userAge, setIsAuthenticated }) => {
         <TouchableOpacity
           style={styles.datosButton}
           onPress={ handleVerDatos} > 
-          <Text style={styles.datosButtonText}>DATOS</Text>
+          <Text style={styles.datosButtonText}>Mis datos</Text>
         </TouchableOpacity>
       )}
 

@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   card: {
-    backgroundColor: '#ffe4e1', // Rosa claro
+    backgroundColor: '#ffe4e1', 
     padding: 16,
     marginBottom: 12,
     borderRadius: 10,
