@@ -8,7 +8,6 @@ import { useNavigation } from '@react-navigation/native';
 const DatosGuardados = ({ route }) => {
   const { userEmail } = route.params;
   const [datos, setDatos] = useState([]);
-  //const [registros, setRegistros] = useState([]);
   const [loading, setLoading] = useState(true);
   const navigation = useNavigation();
 
@@ -17,13 +16,10 @@ const DatosGuardados = ({ route }) => {
     const obtenerDatos = async () => {
       try {
         const responseSintomas = await get(`/sintomas/${userEmail}`);
-        //const responseRegistros = await get(`/registros/${userEmail}`);
 
         console.log('Síntomas:', responseSintomas.data);
-        //console.log('Registros de episodios:', responseRegistros.data);
 
         setDatos(responseSintomas.data);
-        //setRegistros(responseRegistros.data);
 
       } catch (error) {
         console.error('Error al obtener datos del paciente:', error);

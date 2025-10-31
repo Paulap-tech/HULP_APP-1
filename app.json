@@ -16,10 +16,10 @@
       "bundleIdentifier": "etsit.upm.gbt.apphulp"
     },
     "android": {
+      "permissions": ["READ_EXTERNAL_STORAGE"],
       "adaptiveIcon": {
         "foregroundImage": "./assets/adaptive-icon.png",
-        "backgroundColor": "#ffffff",
-        "permissions": ["READ_EXTERNAL_STORAGE"]
+        "backgroundColor": "#ffffff"
       }
     },
     "web": {

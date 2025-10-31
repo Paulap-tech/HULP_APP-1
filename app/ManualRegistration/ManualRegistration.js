@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { View, TextInput, Text, TouchableOpacity, ScrollView, Alert } from 'react-native';
+import { View, TextInput, Text, TouchableOpacity, ScrollView, Alert} from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { Picker } from '@react-native-picker/picker';
 //import { registerUser } from './apis';

@@ -25,7 +25,6 @@ const Perfil = ({ userEmail, userAge, setIsAuthenticated }) => {
       const savedImage = await AsyncStorage.getItem(`profileImage_${userEmail}`);
       if (savedImage) setProfileImage(savedImage);
 
-      //const medicoGuardado = await AsyncStorage.getItem(`medicoSeleccionado_${userEmail}`);
       const response =await get(`/medico-asignado/${userEmail}`);
       if (response.data && response.data.medicoEmail) {
         setMedicoSeleccionado(response.data.medicoEmail);
