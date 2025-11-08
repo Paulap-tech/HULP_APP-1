@@ -124,24 +124,38 @@ const RegistroEpisodios = ({ userEmail, userAge }) => {
             onPress={() => handleSelection('tipoEvento', item.value)}
           />
         ))}
-
         {form.tipoEvento === 'somnolencia' && (
           <View style={styles.fieldContainer}>
             {somnolenciaSituations.map((situation, index) => (
               <View key={index} style={styles.somnolenciaContainer}>
                 <Text style={styles.somnolenciaQuestion}>{`${index + 1}. ${situation}`}</Text>
-                <Slider
-                  style={styles.slider}
-                  minimumValue={0}
-                  maximumValue={3}
-                  step={1}
-                  value={form.somnolenciaScores[index]}
-                  onValueChange={value => handleSomnolenciaScoreChange(index, value)}
-                />
-                <Text style={styles.sliderText}>Puntuación: {form.somnolenciaScores[index]}</Text>
+                <View style={styles.optionsContainerHorizontal}>
+                  {[0, 1, 2, 3].map(value => (
+                    <TouchableOpacity
+                      key={value}
+                      style={[
+                        styles.numberButton,
+                        form.somnolenciaScores[index] === value && styles.selectedNumberButton
+                      ]}
+                      onPress={() => handleSomnolenciaScoreChange(index, value)}
+                    >
+                      <Text
+                        style={[
+                          styles.numberButtonText,
+                          form.somnolenciaScores[index] === value && styles.selectedNumberButtonText
+                        ]}
+                      >
+                        {value}
+                      </Text>
+                    </TouchableOpacity>
+                  ))}
+                </View>
+                <Text style={styles.sliderText}>Seleccionado: {form.somnolenciaScores[index] || '-'}</Text>
               </View>
             ))}
-            <Text style={styles.totalSomnolencia}>Puntuación total de somnolencia: {form.somnolencia}</Text>
+            <Text style={styles.totalSomnolencia}>
+              Puntuación total de somnolencia: {form.somnolencia}
+            </Text>
           </View>
         )}
 

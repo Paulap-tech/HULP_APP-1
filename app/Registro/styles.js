@@ -114,6 +114,33 @@ const styles = StyleSheet.create({
     fontSize: 16, // Tamaño del texto
     textAlign: 'center', // Centrar el texto dentro del botón
   },
+  numberButton: {
+    backgroundColor: '#E0E0E0',
+    borderRadius: 25,
+    paddingVertical: 10,
+    paddingHorizontal: 15,
+    marginHorizontal: 5,
+    alignItems: 'center',
+    justifyContent: 'center',
+    width: 45,
+    height: 45,
+    borderWidth: 1,
+    borderColor: '#ccc',
+  },
+  selectedNumberButton: {
+    backgroundColor: '#00adf5',
+    borderColor: '#0077cc',
+  },
+  numberButtonText: {
+    fontSize: 16,
+    color: '#333',
+    fontWeight: '500',
+  },
+  selectedNumberButtonText: {
+    color: '#fff',
+    fontWeight: '700',
+  },
+
 });
 
 export default styles;
