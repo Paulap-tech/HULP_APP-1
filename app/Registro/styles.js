@@ -23,22 +23,34 @@ const styles = StyleSheet.create({
     flexWrap: 'wrap', // Permitir que los botones se envuelvan si no caben en una sola línea
   },
   optionButton: {
-    padding: 10,
-    backgroundColor: '#E0E0E0', // Fondo gris claro para los botones
-    borderRadius: 5,
-    marginHorizontal: 5, // Espaciado horizontal entre botones
-    marginVertical: 5, // Espaciado vertical entre botones
+   backgroundColor: '#E0E0E0',     // gris claro por defecto
+   paddingVertical: 12,
+   paddingHorizontal: 20,
+   borderRadius: 25,               // más redondeado tipo "pill"
+   marginVertical: 8,
+   marginHorizontal: 6,
+   alignItems: 'center',
+   justifyContent: 'center',
+   elevation: 2,                   // sombra en Android
+   shadowColor: '#000',            // sombra en iOS
+   shadowOffset: { width: 0, height: 2 },
+   shadowOpacity: 0.2,
+   shadowRadius: 3,
+   borderWidth: 1,
+   borderColor: '#ccc',
   },
   selectedButton: {
     backgroundColor: '#00adf5', // Color de selección azul
+    borderColor: '#0056b3'
   },
   optionText: {
-    fontSize: 18, // Aumentar tamaño de la fuente para mayor claridad
-    fontWeight: 'bold', // Texto en negrita
+    fontSize: 16, // Aumentar tamaño de la fuente para mayor claridad
+    fontWeight: '500', // Texto en negrita
     color: '#333', // Color del texto
   },
   selectedText: {
     color: '#fff', // Texto blanco para el botón seleccionado
+    fontWeight:'600',
   },
   fieldContainer: {
     marginVertical: 10, // Aumentar el espaciado vertical entre secciones

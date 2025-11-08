@@ -16,23 +16,36 @@ const styles = StyleSheet.create({
     textAlign: 'center', // Alineación centrada para el título
   },
   optionButton: {
-    padding: 10,
-    backgroundColor: '#E0E0E0', // Fondo gris claro para los botones
-    borderRadius: 5,
-    marginVertical: 5, // Espaciado vertical entre botones
-    alignItems: 'center', // Alineación del texto
-    justifyContent: 'center', // Justificación del texto
+
+    backgroundColor: '#E0E0E0',     // gris claro por defecto
+    paddingVertical: 12,
+    paddingHorizontal: 20,
+    borderRadius: 25,               // bordes redondeados tipo "pill"
+    marginVertical: 8,
+    marginHorizontal: 6,
+    alignItems: 'center',
+    justifyContent: 'center',
+    elevation: 2,                   // sombra para Android
+    shadowColor: '#000',            // sombra para iOS
+    shadowOffset: { width: 0, height: 2 },
+    shadowOpacity: 0.2,
+    shadowRadius: 3,
+    borderWidth: 1,
+    borderColor: '#ccc',
+   
   },
   selectedButton: {
-    backgroundColor: '#007bff', // Color azul para el botón seleccionado
+    backgroundColor: '#007bff',
+    borderColor: '#0056b3', // Color azul para el botón seleccionado
   },
   optionText: {
     fontSize: 16, // Tamaño de la fuente
     color: '#333', // Color del texto
-    fontWeight: 'bold', // Texto en negrita
+    fontWeight: '500', // Texto en negrita
   },
   selectedText: {
     color: '#fff', // Texto blanco para el botón seleccionado
+    fontWeight: '600',
   },
   symptomList: {
     paddingBottom: 80, // Espacio suficiente para el botón fijo

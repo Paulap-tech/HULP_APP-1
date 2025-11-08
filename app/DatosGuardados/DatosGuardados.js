@@ -4,6 +4,14 @@ import styles from './styles';
 import { get } from '../apis';
 import { TouchableOpacity } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
+import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
+import timezone from 'dayjs/plugin/timezone';
+
+dayjs.extend(utc);
+dayjs.extend(timezone);
+dayjs.tz.setDefault('Europe/Madrid'); //si quiero añadir el formato
+
 
 const DatosGuardados = ({ route }) => {
   const { userEmail } = route.params;
@@ -65,7 +73,11 @@ const DatosGuardados = ({ route }) => {
         data={datos}
         keyExtractor={(item) => item.fecha}
         renderItem={({ item }) => {
-          const fechaFormateada = new Date(item.fecha).toLocaleDateString();
+          console.log("fecha original:", item.fecha)
+          const fechaFormateada = dayjs.utc(item.fecha + "T00:00:00").local().format("DD/MM/YYYY");
+          /*const fechaFormateada = new Date(item.fecha).toLocaleDateString('es-ES', {
+            timeZone: 'Europe/Madrid',}
+          );*/
           return(
             <View style={styles.card}>
               <Text style={styles.fecha}>Fecha: {fechaFormateada}</Text>

@@ -95,10 +95,10 @@ const RegistroEpisodios = ({ userEmail, userAge }) => {
     'Sentado leyendo un periódico, una revista, un libro',
     'Viendo la televisión',
     'Sentado sin hacer nada en un lugar público (por ejemplo, un cine, una reunión familiar, una ceremonia religiosa)',
-    'De pasajero en un coche al cabo de una hora sin parar',
-    'Acostado tranquilo por la tarde cuando las circunstancias lo permiten',
+    'En el coche, como copiloto de un viaje de una hora sin parar',
+    'Tumbado a media tarde',
     'Sentado hablando con alguien',
-    'Sentado tranquilo después de una comida sin alcohol',
+    'Sentado tranquilo después de una comida (sin alcohol)',
     'En un coche, si se para unos minutos por el tráfico'
   ] : [
     'Sentado leyendo',

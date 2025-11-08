@@ -90,6 +90,10 @@ const ManualRegistration = () => {
     return age;
   };
 
+  console.log('especialidad:', especialidad);
+  console.log('role:', role);
+
+
   return (
     <View style={styles.container}>
       <View style={styles.header}>
@@ -99,7 +103,7 @@ const ManualRegistration = () => {
 
 
       </View>
-      <ScrollView style={styles.form}>
+      <ScrollView style={styles.form} keyboardShouldPersistTaps="handled">
       <Text style={styles.label}>Email:</Text>
         <TextInput
           style={styles.input}

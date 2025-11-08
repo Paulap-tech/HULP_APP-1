@@ -10,7 +10,7 @@ const styles = StyleSheet.create({
     fontSize: 20,
     fontWeight: 'bold',
     marginBottom: 16,
-    marginTop: 30,
+    marginTop: 40,
     color: '#333',
     textAlign: 'center',
   },
@@ -20,7 +20,7 @@ const styles = StyleSheet.create({
     marginBottom: 12,
     borderRadius: 10,
     borderColor: '#ffc0cb',
-    borderWidth: 1,
+    borderWidth: 3,
   },
   fecha: {
     fontWeight: 'bold',
