@@ -4,7 +4,7 @@ const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#fafbfdff',
+    backgroundColor: '#78c3efff',
   },
   header: {
     backgroundColor: '#00adf5',
@@ -77,7 +77,7 @@ const styles = StyleSheet.create({
     fontSize: 16,
   },
   logoutButton: {
-    marginTop: 250,
+    marginTop: 150,
     backgroundColor: '#ec543fff',
     paddingVertical: 12,
     paddingHorizontal: 25,
@@ -95,8 +95,9 @@ const styles = StyleSheet.create({
     backgroundColor: '#e6f0fa',
   },
   modalTitle: {
-    fontSize: 20,
+    fontSize: 30,
     fontWeight: 'bold',
+    marginTop: 40,
     marginBottom: 15,
     color: '#003366'
   },

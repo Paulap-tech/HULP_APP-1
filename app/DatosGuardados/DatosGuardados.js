@@ -72,27 +72,25 @@ const DatosGuardados = ({ route }) => {
       <FlatList
         data={datos}
         keyExtractor={(item) => item.fecha}
-        renderItem={({ item }) => {
-          console.log("fecha original:", item.fecha)
-          const fechaFormateada = dayjs.utc(item.fecha + "T00:00:00").local().format("DD/MM/YYYY");
-          /*const fechaFormateada = new Date(item.fecha).toLocaleDateString('es-ES', {
-            timeZone: 'Europe/Madrid',}
-          );*/
-          return(
-            <View style={styles.card}>
-              <Text style={styles.fecha}>Fecha: {fechaFormateada}</Text>
+        renderItem={({ item }) => (
+          <View style={styles.cardDia}>
+            <Text style={styles.fechaTexto}>
+              {dayjs.utc(item.fecha).tz('Europe/Madrid').format("YYYY-MM-DD")}
+            </Text>
 
-              <Text style={{ fontWeight:'bold', marginTop:8 }}>Síntomas:</Text> 
-              {Array.isArray(item.sintomas) && item.sintomas.length > 0 ? ( 
-                item.sintomas.map((sintoma,index) => (
-                  <Text key={index} >- {sintoma}</Text>
-                ))
-              ) : ( 
-                <Text>-No se registraron síntomas </Text>
-              )}
-            </View>
-          );
-        }}
+            {item.sintomas?.length > 0 ? (
+              item.sintomas.map((s, idx) => (
+                <Text key={idx} style={styles.sintomaTexto}>
+                  .{s}
+                </Text>
+              ))
+            ) : (
+              <Text style={styles.sintomaTexto}>
+                No hay síntomas registrados
+              </Text>
+            )}
+          </View>
+        )}
       />
     </View>
   );

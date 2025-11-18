@@ -16,6 +16,7 @@ import PersonalInfo from './app/PersonalInfo/PersonalInfo';
 import PerfilScreen from './app/Perfil/Perfil'; 
 import ListaPacientes from './app/ListaPacientes/ListaPacientes';
 import DatosGuardados from './app/DatosGuardados/DatosGuardados';
+import PacienteDetalle from './app/PacienteDetalle/PacienteDetalle';
 
 const Tab = createBottomTabNavigator();
 const Stack = createStackNavigator();
@@ -76,6 +77,11 @@ const MainTabsWithStack = ({ route }) => {
         name="DatosGuardados" 
         component={DatosGuardados} 
       />
+      <TabStack.Screen
+        name="PacienteDetalle"
+        component={PacienteDetalle}
+        options={{ title: "Detalles del Paciente"}}
+      />
     </TabStack.Navigator>
   );
 };
@@ -133,6 +139,8 @@ const App = () => {
             <Stack.Screen name="DayPeriod" component={DayPeriod} />
             <Stack.Screen name="PersonalInfo" component={PersonalInfo} />
             <Stack.Screen name="DatosGuardados" component={DatosGuardados} />
+           
+
           </>
         )}
       </Stack.Navigator>

@@ -15,7 +15,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   card: {
-    backgroundColor: '#ffe4e1', 
+    backgroundColor: '#C4D3FF', 
     padding: 16,
     marginBottom: 12,
     borderRadius: 10,
@@ -66,6 +66,23 @@ emptyContainer: {
     fontWeight: "500",
     textAlign: 'center',
   },
+  cardDia: {
+    backgroundColor: '#C4D3FF',
+    padding: 15,
+    marginVertical: 8,
+    borderRadius: 10
+  },
+  fechaTexto: {
+    fontSize: 18,
+    fontWeight: 'bold',
+    marginBottom: 5
+  },
+  sintomaTexto: {
+    marginTop:8,
+    fontSize: 16,
+    marginLeft: 10
+  }
+
 
 
 });

@@ -10,7 +10,6 @@ const sintomasGenerales = [
   'Dolor Pélvico',
   'Dolor Abdominal',
   'Fatiga',
-  'Cansancio',
   'Náuseas',
   'Mareos',
   'Insomnio',
@@ -73,7 +72,7 @@ const RegistroSintomas = ({ userEmail, navigation }) => {
 
   return (
     <View style={styles.container}>
-      <Text style={styles.title}>Registro de Síntomas para el {today}</Text>
+      <Text style={styles.title}>Registro de Síntomas mestruales del día: {today}</Text>
       <FlatList
         data={sintomasGenerales}
         renderItem={renderSymptomItem}

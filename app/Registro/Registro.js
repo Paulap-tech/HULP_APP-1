@@ -161,7 +161,7 @@ const RegistroEpisodios = ({ userEmail, userAge }) => {
 
         {form.tipoEvento === 'cataplejia' && (
           <View style={styles.fieldContainer}>
-            {['Extremidades', 'Facial', 'Suelo'].map((type, index) => (
+            {['Extremidades', 'Facial', 'Suelo: caída al suelo'].map((type, index) => (
               <View key={index} style={styles.fieldContainer}>
                 <Text style={styles.label}>Cataplejia {type}</Text>
                 <View style={styles.optionsContainer}>

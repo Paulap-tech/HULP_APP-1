@@ -14,7 +14,7 @@ const styles = StyleSheet.create({
     textAlign: 'center',
   },
   card: {
-    backgroundColor: '#f1f1f1',
+    backgroundColor: '#D0D8FF',
     padding: 12,
     marginBottom: 10,
     borderRadius: 8,
