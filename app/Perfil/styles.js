@@ -1,148 +1,119 @@
-import { StyleSheet } from 'react-native';
+import { StyleSheet } from "react-native";
 
 const styles = StyleSheet.create({
   container: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#78c3efff',
+    backgroundColor: "white",
   },
-  header: {
-    backgroundColor: '#00adf5',
-    padding: 16,
-    borderRadius: 10,
+
+  saludo: {
+    fontSize: 28,
+    fontWeight: "bold",
     marginBottom: 20,
+    alignItems: "center",
   },
-  title: {
-    fontSize: 22,
-    fontWeight: 'bold',
-    color: '#fff',
-    textAlign: 'center',
-  },
-  profileRow: {
-    flexDirection: 'row',
-    alignItems: 'center',
-    gap: 20,
-  },
-  profileImage: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    borderWidth: 2,
-    borderColor: '#66b2ff',
-  },
-  imagePlaceholder: {
-    width: 100,
-    height: 100,
-    borderRadius: 50,
-    backgroundColor: '#cce0ff',
-    alignItems: 'center',
-    justifyContent: 'center',
-  },
-  imagePlaceholderText: {
-    fontSize: 40,
-    color: '#6699cc',
-  },
-  infoBox: {
-    flex: 1,
-    backgroundColor: '#99ccff',
-    padding: 20,
+
+  cardPerfil: {
+    backgroundColor: "#e8f0ff",
     borderRadius: 12,
-    elevation: 3,
-    shadowColor: '#000',
-    shadowOffset: { width: 1, height: 2 },
-    shadowOpacity: 0.2,
-    shadowRadius: 4,
+    padding: 20,
+    flexDirection: "row",
+    alignItems: "center",
+    marginBottom: 30,
   },
-  label: {
-    fontSize: 18,
-    fontWeight: '600',
-    marginTop: 10,
-    color: '#003366',
+
+  imageContainer: {
+    marginRight: 20,
   },
-  value: {
-    fontSize: 16,
-    color: '#004080',
+
+  profileImage: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    borderWidth: 2,
+    borderColor: "#99bbee",
+  },
+
+  imagePlaceholder: {
+    width: 80,
+    height: 80,
+    borderRadius: 40,
+    backgroundColor: "#cddcff",
+    alignItems: "center",
+    justifyContent: "center",
+  },
+
+  imagePlaceholderText: {
+    fontSize: 35,
+    color: "#6b82b8",
+  },
+
+  infoUser: {
+    flex: 1,
+    marginTop:20,
+    marginBottom:20,
+  },
+
+  infoText: {
+    fontSize: 17,
     marginBottom: 10,
   },
-  selectDoctorButton: {
-    marginTop: 20,
-    backgroundColor: '#3399ff',
-    paddingVertical: 10,
-    borderRadius: 8,
-    alignItems: 'center',
-  },
-  selectDoctorButtonText: {
-    color: '#fff',
-    fontWeight: 'bold',
-    fontSize: 16,
-  },
-  logoutButton: {
-    marginTop: 150,
-    backgroundColor: '#ec543fff',
-    paddingVertical: 12,
-    paddingHorizontal: 25,
+
+  boton: {
+    backgroundColor: "#80bfff",
+    paddingVertical: 15,
     borderRadius: 10,
-    alignItems: 'center',
+    alignItems: "center",
+    marginBottom: 15,
   },
-  logoutButtonText: {
-    color: '#fff',
-    fontSize: 16,
-    fontWeight: 'bold',
+
+  botonTexto: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
   },
+
+  botonCerrar: {
+    backgroundColor: "#ff6b6b",
+    paddingVertical: 15,
+    borderRadius: 10,
+    alignItems: "center",
+    marginTop: 40,
+  },
+
+  botonTextoCerrar: {
+    color: "white",
+    fontSize: 18,
+    fontWeight: "bold",
+  },
+
+  /** MODAL */
   modalContainer: {
     flex: 1,
     padding: 20,
-    backgroundColor: '#e6f0fa',
+    backgroundColor: "white",
   },
+
   modalTitle: {
-    fontSize: 30,
-    fontWeight: 'bold',
-    marginTop: 40,
-    marginBottom: 15,
-    color: '#003366'
+    fontSize: 25,
+    fontWeight: "bold",
+    marginVertical: 20,
   },
+
   medicoItem: {
     padding: 15,
     borderBottomWidth: 1,
-    borderColor: '#99ccff',
+    borderColor: "#ccc",
   },
+
   medicoNombre: {
-    fontSize: 16,
-    fontWeight: '600',
-    color: '#003366'
+    fontSize: 18,
   },
-  medicoEspecialidad: {
-    color: '#004080',
-  },
-  bloqueMedico: {
-    backgroundColor: '#cce0ff',
-    padding: 10,
-    marginTop: 30,
-    marginHorizontal: 20,
-    marginBottom: 10,
-    borderRadius: 8,
-    alignItems: 'center',
-  },
-  textoBloqueMedico: {
-    color: '#003366',
-    fontWeight: 'bold',
-  },
-  datosButton: {
-  backgroundColor: '#3399ff', 
-  paddingVertical: 12,
-  paddingHorizontal: 120,
-  borderRadius: 10,
-  alignItems: 'center',
-  marginTop: 50,
-  alignSelf: 'center',
-},
-datosButtonText: {
-  color: 'white',
-  fontSize: 16,
-  fontWeight: 'bold',
-},
 
-
+  infoBold: {
+    fontWeight: "bold",
+  }
 });
 
 export default styles;

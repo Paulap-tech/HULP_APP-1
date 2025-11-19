@@ -75,7 +75,7 @@ const DatosGuardados = ({ route }) => {
         renderItem={({ item }) => (
           <View style={styles.cardDia}>
             <Text style={styles.fechaTexto}>
-              {dayjs.utc(item.fecha).tz('Europe/Madrid').format("YYYY-MM-DD")}
+              {dayjs.utc(item.fecha).format("YYYY-MM-DD")}
             </Text>
 
             {item.sintomas?.length > 0 ? (

@@ -22,7 +22,9 @@ const sintomasGenerales = [
 
 const RegistroSintomas = ({ userEmail, navigation }) => {
   const [selectedSymptoms, setSelectedSymptoms] = useState({});
-  const today = new Date().toISOString().slice(0, 10); // Obtener la fecha actual en formato YYYY-MM-DD
+  const today = new Date().toLocaleDateString('en-CA');
+
+  //const today = new Date().toISOString().slice(0, 10); // Obtener la fecha actual en formato YYYY-MM-DD
 
   useEffect(() => {
     // Resetear el estado cuando el componente se monte
