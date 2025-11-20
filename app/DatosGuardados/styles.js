@@ -1,11 +1,6 @@
 import { StyleSheet } from 'react-native';
 
 const styles = StyleSheet.create({
-  container: {
-    padding: 16,
-    flex: 1,
-    backgroundColor: '#fff',
-  },
   title: {
     fontSize: 20,
     fontWeight: 'bold',
@@ -81,7 +76,30 @@ emptyContainer: {
     marginTop:8,
     fontSize: 16,
     marginLeft: 10
-  }
+  },
+  subtitulo: {
+    marginTop: 12,
+    paddingVertical: 10,
+    borderTopWidth: 1,
+    borderTopColor: '#ccd3ff',
+    fontSize: 17,
+    fontWeight: "bold",
+    color: "#110c0cff"
+  },
+  episodioTitulo: {
+    fontSize: 16,
+    fontWeight: 'bold',
+    marginBottom: 6,
+    color: '#2a2a2a',
+  },
+
+  episodioTexto: {
+    marginLeft: 10,
+    fontSize: 14,
+    color: '#444',
+    marginBottom: 4,
+  },
+
 
 
 
